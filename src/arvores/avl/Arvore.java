@@ -100,6 +100,7 @@ public class Arvore {
                 break;
             case 1:
                 no.setFator(2);
+                caso2(no);
                 inseriu = false;
                 break;
         }
@@ -108,7 +109,7 @@ public class Arvore {
     public void caso2(No no) {
         No aux = no.getFilhoDaDireita();
         if (aux.getFator() == 1) {
-        	
+        	no = rotacaoEsq(no);
         } else {
 
         }
