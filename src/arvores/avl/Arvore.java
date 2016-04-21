@@ -84,6 +84,7 @@ public class Arvore {
                 break;
             case -1:
                 no.setFator(-2);
+                caso1(no);
                 inseriu = false;
                 break;
         }
@@ -107,7 +108,7 @@ public class Arvore {
     public void caso2(No no) {
         No aux = no.getFilhoDaDireita();
         if (aux.getFator() == 1) {
-
+        	
         } else {
 
         }
@@ -117,14 +118,30 @@ public class Arvore {
 
     public void caso1(No no) {
         No aux = no.getFilhoDaEsquerda();
-        if (aux.getFator() == -1) {
-
+        if (aux.getFator() == -1) { //rotação simples a direita
+        	no = rotacaoDir(no);
         } else {
 
         }
         no.setFator(0);
         inseriu = false;
 
+    }
+    
+    public No rotacaoDir(No no){
+    	No aux = no.getFilhoDaEsquerda();
+    	no.setFilhoDaEsquerda(aux.getFilhoDaDireita());
+    	aux.setFilhoDaDireita(no);
+    	no = aux;
+    	return no;
+    }
+    
+    public No rotacaoEsq(No no){
+    	No aux = no.getFilhoDaDireita();
+    	no.setFilhoDaDireita(aux.getFilhoDaEsquerda());
+    	aux.setFilhoDaEsquerda(no);
+    	no = aux;
+    	return no;
     }
 
 }
