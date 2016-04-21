@@ -111,7 +111,7 @@ public class Arvore {
         if (aux.getFator() == 1) {
         	no = rotacaoEsq(no);
         } else {
-
+        	no = rotacaoDirEsq(no);
         }
         no.setFator(0);
         inseriu = false;
@@ -122,11 +122,23 @@ public class Arvore {
         if (aux.getFator() == -1) { //rotação simples a direita
         	no = rotacaoDir(no);
         } else {
-
+        	no = rotacaoEsqDir(no);
         }
         no.setFator(0);
         inseriu = false;
 
+    }
+    
+    public No rotacaoDirEsq(No no){
+    	no.setFilhoDaDireita(rotacaoDir(no.getFilhoDaDireita()));
+    	no = rotacaoEsq(no);
+    	return no;
+    }
+    
+    public No rotacaoEsqDir(No no){
+    	no.setFilhoDaEsquerda(rotacaoEsq(no.getFilhoDaEsquerda()));
+    	no = rotacaoDir(no);
+		return no;
     }
     
     public No rotacaoDir(No no){
