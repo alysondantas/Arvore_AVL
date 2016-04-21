@@ -38,6 +38,7 @@ public class Arvore {
                 newNo.setChave(chave);
                 newNo.setFator(0);
                 no.setFilhoDaEsquerda(newNo);
+                ajustarBalanceamentoEsquerda(no);//ajusta balanceamento do no para esquerda
                 inseriu = true;
             }
             return;
@@ -54,6 +55,7 @@ public class Arvore {
                 newNo.setChave(chave);
                 newNo.setFator(0);
                 no.setFilhoDaDireita(newNo);
+                ajustarBalanceamentoDireita(no);//ajusta balanceamento do no para direita
                 inseriu = true;
             }
             return;
