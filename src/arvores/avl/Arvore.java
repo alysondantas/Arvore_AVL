@@ -12,10 +12,14 @@ package arvores.avl;
 public class Arvore {
 
     private No raiz;
+    static boolean inseriu = false;
+
 
     public void inserir(int chave) {
+    	inseriu = false;
         if (raiz == null) {
             No no = new No();
+            no.setFator(0);
             no.setChave(chave);
             System.out.println("Inserindo: " + chave);
             raiz = no;
@@ -23,14 +27,14 @@ public class Arvore {
             inserir(raiz, chave);
         }
     }
-    static boolean inseriu = false;
 
     private void inserir(No no, int chave) {
         if (chave < no.getChave()) {
             if (no.getFilhoDaEsquerda() != null) {
                 inserir(no.getFilhoDaEsquerda(), chave);
                 if (inseriu) {
-                    ajustarBalanceamentoEsquerda(no);
+                	no.setFator(calcularFatBal(no));
+//                    ajustarBalanceamentoDireita(no);
                 }
             } else {
                 System.out.println("Inserindo: " + chave);
@@ -38,7 +42,8 @@ public class Arvore {
                 newNo.setChave(chave);
                 newNo.setFator(0);
                 no.setFilhoDaEsquerda(newNo);
-                ajustarBalanceamentoEsquerda(no);//ajusta balanceamento do no para esquerda
+                no.setFator(calcularFatBal(no));
+//                ajustarBalanceamentoDireita(no);//ajusta balanceamento do no para esquerda
                 inseriu = true;
             }
             return;
@@ -47,7 +52,8 @@ public class Arvore {
             if (no.getFilhoDaDireita() != null) {
                 inserir(no.getFilhoDaDireita(), chave);
                 if (inseriu) {
-                    ajustarBalanceamentoDireita(no);
+                	no.setFator(calcularFatBal(no));
+//                    ajustarBalanceamentoEsquerda(no);
                 }
             } else {
                 System.out.println("Inserindo: " + chave);
@@ -55,7 +61,8 @@ public class Arvore {
                 newNo.setChave(chave);
                 newNo.setFator(0);
                 no.setFilhoDaDireita(newNo);
-                ajustarBalanceamentoDireita(no);//ajusta balanceamento do no para direita
+                no.setFator(calcularFatBal(no));
+//                ajustarBalanceamentoEsquerda(no);//ajusta balanceamento do no para direita
                 inseriu = true;
             }
             return;
@@ -157,6 +164,89 @@ public class Arvore {
     	aux.setFilhoDaEsquerda(no);
     	no = aux;
     	return no;
+    }
+    
+    public No rotDir(No no) {
+    	No q, temp;
+    	q = no.getFilhoDaEsquerda();
+    	temp = q.getFilhoDaDireita();
+    	q.setFilhoDaDireita(no);
+    	no.setFilhoDaEsquerda(temp);
+    	no = q;
+    	return no;
+    }
+    
+    public No rotEsq(No no) {
+    	No q, temp;
+    	q = no.getFilhoDaDireita();
+    	temp = q.getFilhoDaEsquerda();
+    	q.setFilhoDaEsquerda(no);
+    	no.setFilhoDaEsquerda(temp);
+    	no = q;
+    	return no;
+    }
+    
+    public int calcularFatBal(No no) {
+    	int alturaEsquerda = calcularAltura(0, no);
+    	int alturaDireita = calcularAltura(1, no);
+    	int fatBal = alturaEsquerda - alturaDireita;
+    	if (fatBal == 2) {
+    		caso2(no);
+    		inseriu = false;
+    	} else if (fatBal == -2) {
+    		caso1(no);
+    		inseriu = false;
+    	}
+    	return fatBal;
+    }
+    
+    public int calcularAltura(int lado, No noOriginal) {
+    	No no = noOriginal;
+    	boolean primeiro = false;
+    	int altura = -1;
+    	
+    	if(lado == 0) {
+    		while(no != null) {
+    			if(primeiro == false) {
+    				altura ++;
+    				no = no.getFilhoDaEsquerda();
+    				primeiro = true;
+    			}
+    			else {
+    				if(no.getFilhoDaEsquerda() == null && no.getFilhoDaDireita() != null) {
+    					altura ++;
+    					altura += calcularAltura(1, no);
+    					no = no.getFilhoDaEsquerda();
+    				}
+    				else {
+    					altura ++;
+    					no = no.getFilhoDaEsquerda();
+    				}
+    			}
+    		}
+    	}
+    	
+    	else {
+    		while(no != null) {
+    			if (primeiro == false) {
+    				altura++;
+					no = no.getFilhoDaDireita();
+					primeiro = true;
+    			}
+    			else {
+    				if(no.getFilhoDaDireita() == null && no.getFilhoDaEsquerda() != null) {
+    					altura += calcularAltura(0, no);
+    					no = no.getFilhoDaDireita();
+    				}
+    				else {
+    					altura ++;
+    					no = no.getFilhoDaDireita();
+    				}
+    			}
+    		}
+    	}
+    	
+    	return altura;
     }
 
 }
