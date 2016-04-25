@@ -13,6 +13,7 @@ public class No {
 
     private No filhoDaEsquerda;
     private No filhoDaDireita;
+    private No pai;
     private int fator;
     private int chave;
 
@@ -47,5 +48,13 @@ public class No {
     public void setFator(int fator) {
         this.fator = fator;
     }
+
+	public No getPai() {
+		return pai;
+	}
+
+	public void setPai(No pai) {
+		this.pai = pai;
+	}
 
 }
