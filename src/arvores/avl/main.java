@@ -15,12 +15,12 @@ public class main {
 //		arv.inserir(17);
 		
 		//rotacao a direita
-		arv.inserir(8);
-		arv.inserir(10);
-		arv.inserir(4);
-		arv.inserir(2);
-		arv.inserir(6);
-		arv.inserir(3);
+//		arv.inserir(8);
+//		arv.inserir(10);
+//		arv.inserir(4);
+//		arv.inserir(2);
+//		arv.inserir(6);
+//		arv.inserir(3);
 		
 		
 		//bug null point
@@ -31,7 +31,7 @@ public class main {
 //		arv.inserir(17);
 //		arv.inserir(3);
 		
-		//bug perda de referencias
+//		//bug perda de referencias
 //		arv.inserir(10);
 //		arv.inserir(11);
 //		arv.inserir(12);
