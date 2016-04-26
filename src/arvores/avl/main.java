@@ -22,13 +22,16 @@ public class main {
 //		arv.inserir(6);
 //		arv.inserir(3);
 		
-		arv.inserir(15);
-		arv.inserir(6);
-		arv.inserir(4);
-		arv.inserir(18);
-		arv.inserir(17);
-		arv.inserir(3);
 		
+		//bug null point talvez pela perda de referencias :P
+//		arv.inserir(15);
+//		arv.inserir(6);
+//		arv.inserir(4);
+//		arv.inserir(18);
+//		arv.inserir(17);
+//		arv.inserir(3);
+		
+		//bug perda de referencias
 //		arv.inserir(10);
 //		arv.inserir(11);
 //		arv.inserir(12);
@@ -38,15 +41,31 @@ public class main {
 //		arv.inserir(16);
 //		arv.inserir(17);
 		
+//		arv.inserir(17);
+//		arv.inserir(16);
+//		arv.inserir(15);
+//		arv.inserir(14);
+//		arv.inserir(13);
+//		arv.inserir(12);
+//		arv.inserir(11);
+//		arv.inserir(10);
+
 //		arv.inserir(3);
 //		arv.inserir(2);
 //		arv.inserir(1);
 		
-//		arv.inserir(1);
-//		arv.inserir(2);
-//		arv.inserir(3);
-//		arv.inserir(4);
+		//bug perda de referencias
+		arv.inserir(1);
+		arv.inserir(2);
+		arv.inserir(3);
+		arv.inserir(4);
+		arv.inserir(5);
+		
 //		arv.inserir(5);
+//		arv.inserir(4);
+//		arv.inserir(3);
+//		arv.inserir(2);
+//		arv.inserir(1);
 		
 		
 		arv.imprimeEmOrdem();
