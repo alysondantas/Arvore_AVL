@@ -98,16 +98,20 @@ public class Arvore {
 	
 
 	public void ajustarBalanco(No no){
+		int dir = obterFator(no.getFilhoDaDireita());
+		int esq = obterFator(no.getFilhoDaEsquerda());
 		
-		int fator = obterFator(no);
+		int fator = dir - esq;
 		no.setFator(fator);
 		
 		if(no.getFator() == 2){
 			System.out.println("Entrou no caso 2");
 			caso2(no);
+//			ajustarBalanco(no);
 		}else if(no.getFator() == -2){
 			System.out.println("Entrou no caso 1");
 			caso1(no);
+//			ajustarBalanco(no);
 		}
 		if(no.getPai()!= null){
 			ajustarBalanco(no.getPai());
@@ -152,7 +156,9 @@ public class Arvore {
 		if (aux.getFator() == 1) {
 			no = rotacaoEsq(no);
 		} else {
-			no = rotacaoDirEsq(no);
+			if(no.getFator() == -1){
+				no = rotacaoEsqDir(no);
+			}
 		}
 		//		no.setFator(0);
 		inseriu = false;
@@ -163,7 +169,9 @@ public class Arvore {
 		if (aux.getFator() == -1) {
 			no = rotacaoDir(no);
 		} else {
-			no = rotacaoEsqDir(no);
+			if(no.getFator() == 1){
+				no = rotacaoDirEsq(no);
+			}
 		}
 		//		no.setFator(0);
 		inseriu = false;
@@ -198,13 +206,16 @@ public class Arvore {
 		}
 		if(no != raiz){
 			System.out.println("comparou o pai...");
-			if(pai.getFilhoDaEsquerda().equals(no)){
-				System.out.println("encontrou o pai e trocou");
-				pai.setFilhoDaEsquerda(aux);
-			}
-			else if(pai.getFilhoDaDireita().equals(no)){
-				System.out.println("Erro?");
-				pai.setFilhoDaDireita(aux);
+			if(pai.getFilhoDaEsquerda()!=null){
+				if(pai.getFilhoDaEsquerda().equals(no)){
+					System.out.println("encontrou o pai e trocou");
+					pai.setFilhoDaEsquerda(aux);
+				}
+			}else if(pai.getFilhoDaDireita()!=null){
+				if(pai.getFilhoDaDireita().equals(no)){
+					System.out.println("Erro?");
+					pai.setFilhoDaDireita(aux);
+				}
 			}
 		} else {
 			System.out.println("É a raiz!");
@@ -235,13 +246,18 @@ public class Arvore {
 		aux.setPai(no.getPai());
 		if(no!=raiz){
 			System.out.println("comparou o pai... a esquerda");
-			if(pai.getFilhoDaEsquerda().equals(no)){
-				System.out.println("Erro?");
-				pai.setFilhoDaEsquerda(aux);
-			} else if(pai.getFilhoDaDireita().equals(no)){
-				System.out.println("encontrou o pai e trocou como filho da direita");
-				pai.setFilhoDaDireita(aux);
+			if(pai.getFilhoDaEsquerda()!=null){
+				if(pai.getFilhoDaEsquerda().equals(no)){
+					System.out.println("Erro?");
+					pai.setFilhoDaEsquerda(aux);
+				}
+			}else if(pai.getFilhoDaDireita()!=null){
+				 if(pai.getFilhoDaDireita().equals(no)){
+						System.out.println("encontrou o pai e trocou como filho da direita");
+						pai.setFilhoDaDireita(aux);
+					}
 			}
+			
 		} else{
 			System.out.println("É a raiz!");
 			braiz = true;
