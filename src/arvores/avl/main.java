@@ -15,15 +15,15 @@ public class main {
 //		arv.inserir(17);
 		
 		//rotacao a direita
-//		arv.inserir(8);
-//		arv.inserir(10);
-//		arv.inserir(4);
-//		arv.inserir(2);
-//		arv.inserir(6);
-//		arv.inserir(3);
+		arv.inserir(8);
+		arv.inserir(10);
+		arv.inserir(4);
+		arv.inserir(2);
+		arv.inserir(6);
+		arv.inserir(3);
 		
 		
-		//bug null point talvez pela perda de referencias :P
+		//bug null point
 //		arv.inserir(15);
 //		arv.inserir(6);
 //		arv.inserir(4);
@@ -55,11 +55,11 @@ public class main {
 //		arv.inserir(1);
 		
 		//bug perda de referencias
-		arv.inserir(1);
-		arv.inserir(2);
-		arv.inserir(3);
-		arv.inserir(4);
-		arv.inserir(5);
+//		arv.inserir(1);
+//		arv.inserir(2);
+//		arv.inserir(3);
+//		arv.inserir(4);
+//		arv.inserir(5);
 		
 //		arv.inserir(5);
 //		arv.inserir(4);

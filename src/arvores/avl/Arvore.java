@@ -81,7 +81,7 @@ public class Arvore {
 			imprimeEmOrdem(raiz.getFilhoDaDireita());
 		}
 	}
-	
+
 	public int obterFator(No raiz){
 		if(raiz == null){
 			return -1;
@@ -95,15 +95,15 @@ public class Arvore {
 			return Integer.max(obterFator(raiz.getFilhoDaDireita()), obterFator(raiz.getFilhoDaEsquerda()))+1;
 		}
 	}
-	
+
 
 	public void ajustarBalanco(No no){
 		int dir = obterFator(no.getFilhoDaDireita());
 		int esq = obterFator(no.getFilhoDaEsquerda());
-		
+
 		int fator = dir - esq;
 		no.setFator(fator);
-		
+
 		if(no.getFator() == 2){
 			System.out.println("Entrou no caso 2");
 			caso2(no);
@@ -239,25 +239,25 @@ public class Arvore {
 			No aux2 = no.getFilhoDaDireita();
 			aux2.setPai(no);
 		}
-		if(no!=raiz){
+		if(no != raiz){
 			System.out.println("comparou o pai... a esquerda");
-			if(pai.getFilhoDaEsquerda()!=null){
+			if(pai.getFilhoDaDireita()!=null){
+				if(pai.getFilhoDaDireita().equals(no)){
+					System.out.println("encontrou o pai e trocou como filho da direita");
+					pai.setFilhoDaDireita(aux);
+				}
+			}else if(pai.getFilhoDaEsquerda()!=null){
 				if(pai.getFilhoDaEsquerda().equals(no)){
 					System.out.println("Erro?");
 					pai.setFilhoDaEsquerda(aux);
 				}
-			}else if(pai.getFilhoDaDireita()!=null){
-				 if(pai.getFilhoDaDireita().equals(no)){
-						System.out.println("encontrou o pai e trocou como filho da direita");
-						pai.setFilhoDaDireita(aux);
-					}
 			}
-		
+
 		} else{
 			System.out.println("É a raiz!");
 			braiz = true;
 		}
-		
+
 		aux.setPai(no.getPai());
 		aux.setFilhoDaEsquerda(no);
 		no.setPai(aux);
