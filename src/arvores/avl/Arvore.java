@@ -105,7 +105,7 @@ public class Arvore {
 		no.setFator(fator);
 
 		if(no.getFator() == 2){
-			System.out.println("Entrou no caso 2");
+			System.out.println("agua azul");
 			caso2(no);
 			ajustarBalanco(no);
 		}else if(no.getFator() == -2){
@@ -178,18 +178,20 @@ public class Arvore {
 
 	}
 
-	public void rotacaoDirEsq(No no){
+	public No rotacaoDirEsq(No no){
 		System.out.println("Rotacao dupla dir esq");
 		no.setFilhoDaDireita(rotacaoDir(no.getFilhoDaDireita()));
 		no = rotacaoEsq(no);
 		ajustarBalanco(no.getFilhoDaDireita());
+		return no;
 	}
 
-	public void rotacaoEsqDir(No no){
+	public No rotacaoEsqDir(No no){
 		System.out.println("Rotacao dupla esq dir");
 		no.setFilhoDaEsquerda(rotacaoEsq(no.getFilhoDaEsquerda()));
 		no = rotacaoDir(no);
 		ajustarBalanco(no.getFilhoDaEsquerda());
+		return no;
 	}
 
 	public No rotacaoDir(No no){
@@ -225,6 +227,7 @@ public class Arvore {
 		no = aux;
 		if(braiz == true){
 			raiz = aux;
+			raiz.setPai(null);
 		}
 		return no;
 	}
@@ -264,6 +267,7 @@ public class Arvore {
 		no = aux;
 		if(braiz == true){
 			raiz = aux;
+			raiz.setPai(null);
 		}
 		return no;
 	}

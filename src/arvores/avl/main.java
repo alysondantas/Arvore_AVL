@@ -24,12 +24,12 @@ public class main {
 		
 		
 		//bug null point
-//		arv.inserir(15);
-//		arv.inserir(6);
-//		arv.inserir(4);
-//		arv.inserir(18);
-//		arv.inserir(17);
-//		arv.inserir(3);
+		arv.inserir(15);
+		arv.inserir(6);
+		arv.inserir(4);
+		arv.inserir(18);
+		arv.inserir(17);
+		arv.inserir(3);
 		
 //		//bug perda de referencias
 //		arv.inserir(10);
