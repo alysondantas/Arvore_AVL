@@ -1,5 +1,10 @@
 package arvores.avl;
 
+/**
+*
+* @author Alyson Dantas e Bruno Menezes
+*/
+	
 public class main {
 
 	public static void main(String[] args) {
