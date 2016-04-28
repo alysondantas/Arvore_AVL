@@ -95,10 +95,8 @@ public class Arvore {
 	public void ajustarBalanco(No no){
 		int dir = obterFator(no.getFilhoDaDireita());
 		int esq = obterFator(no.getFilhoDaEsquerda());
-
 		int fator = dir - esq;
 		no.setFator(fator);
-
 		if(no.getFator() == 2){
 			System.out.println("Entrou no caso 2");
 			caso2(no);
@@ -111,9 +109,6 @@ public class Arvore {
 		if(no.getPai()!= null){
 			ajustarBalanco(no.getPai());
 		} 
-//		else{
-//			raiz = no;
-//		}
 
 	}
 
@@ -149,9 +144,6 @@ public class Arvore {
 	//		}
 	//	}
 
-
-
-
 	public void caso2(No no) {
 		No aux = no.getFilhoDaDireita();
 		if (aux.getFator() == 1) {
@@ -165,19 +157,6 @@ public class Arvore {
 		inseriu = false;
 	}
 
-//	public void caso2(No no) {
-//		No aux = no.getFilhoDaDireita();
-//		if (aux.getFator() == 1) {
-//			rotacaoEsq(no);
-//		} else {
-//			if(no.getFator() == -1){
-//				rotacaoDirEsq(no);
-//			}
-//		}
-//		//		no.setFator(0);
-//		inseriu = false;
-//	}
-
 	public void caso1(No no) {
 		No aux = no.getFilhoDaEsquerda();
 		if (aux.getFator() == -1) {
@@ -190,21 +169,7 @@ public class Arvore {
 		//no.setFator(0);
 		inseriu = false;
 	}
-	
-	//	public void caso1(No no) {
-	//		No aux = no.getFilhoDaEsquerda();
-	//		if (aux.getFator() == -1) {
-	//			rotacaoDir(no);
-	//		} else {
-	//			if(no.getFator() == 1){
-	//				rotacaoEsqDir(no);
-	//			}
-	//		}
-	//		//		no.setFator(0);
-	//		inseriu = false;
-	//
-	//	}
-	
+
 	public No rotacaoDirEsq(No no){
 		System.out.println("Rotacao dupla dir esq");
 		no.setFilhoDaDireita(rotacaoDir(no.getFilhoDaDireita()));
@@ -282,12 +247,10 @@ public class Arvore {
 					pai.setFilhoDaEsquerda(aux);
 				}
 			}
-
 		} else{
 			System.out.println("É a raiz!");
 			braiz = true;
 		}
-
 		aux.setPai(no.getPai());
 		aux.setFilhoDaEsquerda(no);
 		no.setPai(aux);

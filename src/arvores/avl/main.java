@@ -71,7 +71,6 @@ public class main {
 //		arv.inserir(2);
 //		arv.inserir(1);
 		
-		
 		//rotacao dupla esquerda direita
 //		arv.inserir(8);
 //		arv.inserir(10);
@@ -79,7 +78,6 @@ public class main {
 //		arv.inserir(6);
 //		arv.inserir(2);
 //		arv.inserir(5);
-		
 		
 		arv.imprimeEmOrdem();
 	}
