@@ -23,15 +23,15 @@ public class main {
 //		arv.inserir(3);
 		
 		
-		//bug null point rotaão dupla
-//		arv.inserir(15);
-//		arv.inserir(6);
-//		arv.inserir(4);
-//		arv.inserir(18);
-//		arv.inserir(17);
-//		arv.inserir(3);
+		//rotação dupla direita esquerda
+		arv.inserir(15);
+		arv.inserir(6);
+		arv.inserir(4);
+		arv.inserir(18);
+		arv.inserir(17);
+		arv.inserir(3);
 		
-//		//bug perda de referencias
+		//Desequilibrios
 //		arv.inserir(10);
 //		arv.inserir(11);
 //		arv.inserir(12);
@@ -54,7 +54,6 @@ public class main {
 //		arv.inserir(2);
 //		arv.inserir(1);
 		
-		//bug perda de referencias
 //		arv.inserir(1);
 //		arv.inserir(2);
 //		arv.inserir(3);
@@ -68,7 +67,7 @@ public class main {
 //		arv.inserir(1);
 		
 		
-		//rotacao dupla
+		//rotacao dupla esquerda direita
 //		arv.inserir(8);
 //		arv.inserir(10);
 //		arv.inserir(4);

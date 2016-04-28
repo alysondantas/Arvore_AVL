@@ -115,7 +115,10 @@ public class Arvore {
 		}
 		if(no.getPai()!= null){
 			ajustarBalanco(no.getPai());
-		}
+		} 
+//		else{
+//			raiz = no;
+//		}
 
 	}
 
@@ -151,33 +154,62 @@ public class Arvore {
 	//		}
 	//	}
 
+
+
+
 	public void caso2(No no) {
 		No aux = no.getFilhoDaDireita();
 		if (aux.getFator() == 1) {
-			no = rotacaoEsq(no);
+			rotacaoEsq(no);
 		} else {
-			if(no.getFator() == -1){
+			if(aux.getFator() == -1){
 				rotacaoDirEsq(no);
 			}
 		}
-		//		no.setFator(0);
+		//no.setFator(0);
 		inseriu = false;
 	}
+
+//	public void caso2(No no) {
+//		No aux = no.getFilhoDaDireita();
+//		if (aux.getFator() == 1) {
+//			rotacaoEsq(no);
+//		} else {
+//			if(no.getFator() == -1){
+//				rotacaoDirEsq(no);
+//			}
+//		}
+//		//		no.setFator(0);
+//		inseriu = false;
+//	}
 
 	public void caso1(No no) {
 		No aux = no.getFilhoDaEsquerda();
 		if (aux.getFator() == -1) {
-			no = rotacaoDir(no);
+			rotacaoDir(no);
 		} else {
-			if(no.getFator() == 1){
+			if(aux.getFator()==1){
 				rotacaoEsqDir(no);
 			}
 		}
-		//		no.setFator(0);
+		//no.setFator(0);
 		inseriu = false;
-
 	}
-
+	
+	//	public void caso1(No no) {
+	//		No aux = no.getFilhoDaEsquerda();
+	//		if (aux.getFator() == -1) {
+	//			rotacaoDir(no);
+	//		} else {
+	//			if(no.getFator() == 1){
+	//				rotacaoEsqDir(no);
+	//			}
+	//		}
+	//		//		no.setFator(0);
+	//		inseriu = false;
+	//
+	//	}
+	
 	public No rotacaoDirEsq(No no){
 		System.out.println("Rotacao dupla dir esq");
 		no.setFilhoDaDireita(rotacaoDir(no.getFilhoDaDireita()));
