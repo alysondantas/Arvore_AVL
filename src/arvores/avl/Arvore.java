@@ -105,7 +105,7 @@ public class Arvore {
 		no.setFator(fator);
 
 		if(no.getFator() == 2){
-			System.out.println("agua azul");
+			System.out.println("Entrou no caso 2");
 			caso2(no);
 			ajustarBalanco(no);
 		}else if(no.getFator() == -2){

@@ -23,13 +23,13 @@ public class main {
 //		arv.inserir(3);
 		
 		
-		//bug null point
-		arv.inserir(15);
-		arv.inserir(6);
-		arv.inserir(4);
-		arv.inserir(18);
-		arv.inserir(17);
-		arv.inserir(3);
+		//bug null point rotaão dupla
+//		arv.inserir(15);
+//		arv.inserir(6);
+//		arv.inserir(4);
+//		arv.inserir(18);
+//		arv.inserir(17);
+//		arv.inserir(3);
 		
 //		//bug perda de referencias
 //		arv.inserir(10);
@@ -66,6 +66,15 @@ public class main {
 //		arv.inserir(3);
 //		arv.inserir(2);
 //		arv.inserir(1);
+		
+		
+		//rotacao dupla
+//		arv.inserir(8);
+//		arv.inserir(10);
+//		arv.inserir(4);
+//		arv.inserir(6);
+//		arv.inserir(2);
+//		arv.inserir(5);
 		
 		
 		arv.imprimeEmOrdem();
