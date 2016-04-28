@@ -98,11 +98,11 @@ public class Arvore {
 		int fator = dir - esq;
 		no.setFator(fator);
 		if(no.getFator() == 2){
-			System.out.println("Entrou no caso 2");
+//			System.out.println("Entrou no caso 2");
 			caso2(no);
 			ajustarBalanco(no);
 		}else if(no.getFator() == -2){
-			System.out.println("Entrou no caso 1");
+//			System.out.println("Entrou no caso 1");
 			caso1(no);
 			ajustarBalanco(no);
 		}
@@ -171,7 +171,7 @@ public class Arvore {
 	}
 
 	public No rotacaoDirEsq(No no){
-		System.out.println("Rotacao dupla dir esq");
+//		System.out.println("Rotacao dupla direita esquerda");
 		no.setFilhoDaDireita(rotacaoDir(no.getFilhoDaDireita()));
 		no = rotacaoEsq(no);
 		ajustarBalanco(no.getFilhoDaDireita());
@@ -179,7 +179,7 @@ public class Arvore {
 	}
 
 	public No rotacaoEsqDir(No no){
-		System.out.println("Rotacao dupla esq dir");
+//		System.out.println("Rotacao dupla esquerda direita");
 		no.setFilhoDaEsquerda(rotacaoEsq(no.getFilhoDaEsquerda()));
 		no = rotacaoDir(no);
 		ajustarBalanco(no.getFilhoDaEsquerda());
@@ -188,7 +188,7 @@ public class Arvore {
 
 	public No rotacaoDir(No no){
 		boolean braiz = false;
-		System.out.println("Rotacao a direita");
+//		System.out.println("Rotacao a direita");
 		No pai = no.getPai();
 		No aux = no.getFilhoDaEsquerda();
 		no.setFilhoDaEsquerda(aux.getFilhoDaDireita());
@@ -197,20 +197,20 @@ public class Arvore {
 			aux2.setPai(no);
 		}
 		if(no != raiz){
-			System.out.println("comparou o pai...");
+//			System.out.println("comparou o pai...");
 			if(pai.getFilhoDaEsquerda()!=null){
 				if(pai.getFilhoDaEsquerda().equals(no)){
-					System.out.println("encontrou o pai e trocou");
+//					System.out.println("encontrou o pai");
 					pai.setFilhoDaEsquerda(aux);
 				}
 			}else if(pai.getFilhoDaDireita()!=null){
 				if(pai.getFilhoDaDireita().equals(no)){
-					System.out.println("Erro?");
+//					System.out.println("Encontrou o pai");
 					pai.setFilhoDaDireita(aux);
 				}
 			}
 		} else {
-			System.out.println("É a raiz!");
+//			System.out.println("É a raiz!");
 			braiz = true;
 		}
 		aux.setPai(no.getPai());
@@ -226,7 +226,7 @@ public class Arvore {
 
 	public No rotacaoEsq(No no){
 		boolean braiz = false;
-		System.out.println("Rotacao a esquerda");
+//		System.out.println("Rotacao a esquerda");
 		No pai = no.getPai();
 		No aux = no.getFilhoDaDireita();
 		no.setFilhoDaDireita(aux.getFilhoDaEsquerda());
@@ -235,20 +235,20 @@ public class Arvore {
 			aux2.setPai(no);
 		}
 		if(no != raiz){
-			System.out.println("comparou o pai... a esquerda");
+//			System.out.println("comparou o pai...");
 			if(pai.getFilhoDaDireita()!=null){
 				if(pai.getFilhoDaDireita().equals(no)){
-					System.out.println("encontrou o pai e trocou como filho da direita");
+//					System.out.println("encontrou o pai");
 					pai.setFilhoDaDireita(aux);
 				}
 			}else if(pai.getFilhoDaEsquerda()!=null){
 				if(pai.getFilhoDaEsquerda().equals(no)){
-					System.out.println("Erro?");
+//					System.out.println("Encontrou um pai");
 					pai.setFilhoDaEsquerda(aux);
 				}
 			}
 		} else{
-			System.out.println("É a raiz!");
+//			System.out.println("É a raiz!");
 			braiz = true;
 		}
 		aux.setPai(no.getPai());
